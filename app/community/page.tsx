@@ -2,7 +2,6 @@
 
 import React, { useState } from "react";
 import Footer from "../components/footer";
-import Head from 'next/head';
 import { motion } from 'framer-motion';
 import Header from "../components/Header";
 import { eventsByCycle, ALL_CYCLES } from "@/data/events";
@@ -22,10 +21,6 @@ export default function CommunityPage() {
 
   return (
     <div className="relative">
-      <Head>
-        <title>Community | SQE Society of Quantum Engineers at SJSU</title>
-      </Head>
-
       <Header />
 
       <motion.div

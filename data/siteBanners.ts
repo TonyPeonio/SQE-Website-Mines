@@ -1,15 +1,7 @@
+import { accentCtaClassName, siteConfig } from "./site";
+
 // ============================================================
 // SITE TOP BANNER — switch active banner when seasons change
-// ============================================================
-//
-// HOW TO CHANGE THE BANNER:
-//   1. Set ACTIVE_BANNER_ID to one of the ids below (or null to hide).
-//   2. Optionally set SHOW_HOMEPAGE_HERO_CTA from the same banner config.
-//
-// HOW TO AUTO-CYCLE MULTIPLE BANNERS:
-//   1. Set AUTO_ROTATE_BANNERS = true
-//   2. List banner ids in ROTATING_BANNER_IDS (in display order)
-//
 // ============================================================
 
 export type SiteBanner = {
@@ -19,9 +11,7 @@ export type SiteBanner = {
   ctaLabel: string;
   ctaHref: string;
   ctaExternal?: boolean;
-  /** Pulsing text + center-out underline on the CTA (leadership style) */
   animateCta?: boolean;
-  /** Show a matching CTA button on the home page hero */
   showOnHomepage?: boolean;
   homepageCtaClassName?: string;
 };
@@ -29,34 +19,30 @@ export type SiteBanner = {
 export const SITE_BANNERS: Record<string, SiteBanner> = {
   "summer-break-discord": {
     id: "summer-break-discord",
-    title: "Summer Break",
-    subtitle: "Join the SQE Discord",
+    title: "Join SQE at Mines",
+    subtitle: "Connect with us on Discord",
     ctaLabel: "Join Discord",
-    ctaHref: "https://discord.gg/j5x7jWx3sa",
+    ctaHref: siteConfig.social.discord,
     ctaExternal: true,
     showOnHomepage: true,
-    homepageCtaClassName:
-      "inline-flex items-center px-4 py-2 bg-[#FFC72C] text-[#181818] text-sm font-semibold rounded-full hover:bg-[#E6B326] transition-colors duration-300",
+    homepageCtaClassName: accentCtaClassName,
   },
   "leadership-applications": {
     id: "leadership-applications",
-    title: "Leadership Applications Open Now",
+    title: "Leadership Applications Open",
     subtitle:
-      "Apply with your SJSU email. Applications open until Friday May 15th 11:59 PM PST.",
-    ctaLabel: "APPLY FOR LEADERSHIP HERE",
-    ctaHref: "https://forms.gle/DZDjNmyx7gzBx6xa9",
+      "Apply with your Mines email. Application details coming soon.",
+    ctaLabel: "APPLY FOR LEADERSHIP",
+    ctaHref: "https://forms.gle/TBD",
     ctaExternal: true,
     animateCta: true,
     showOnHomepage: true,
-    homepageCtaClassName:
-      "inline-flex items-center px-4 py-2 bg-[#FFC72C] text-[#181818] text-sm font-semibold rounded-full hover:bg-[#E6B326] transition-colors duration-300",
+    homepageCtaClassName: accentCtaClassName,
   },
 };
 
-/** Set to null to hide the top banner entirely */
 export const ACTIVE_BANNER_ID: string | null = "summer-break-discord";
 
-/** Auto-cycle through these banners (only when AUTO_ROTATE_BANNERS is true) */
 export const AUTO_ROTATE_BANNERS = false;
 export const ROTATING_BANNER_IDS: string[] = [
   "summer-break-discord",

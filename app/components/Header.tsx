@@ -5,6 +5,15 @@ import Image from "next/image";
 import Link from "next/link";
 import SiteBannerBar from "./SiteBanner";
 
+const navLinks = [
+  { href: "/", label: "Home" },
+  { href: "/about", label: "About" },
+  { href: "/members", label: "Team" },
+  { href: "/community", label: "Community" },
+  { href: "/projects", label: "Our Lab" },
+  { href: "/papers", label: "Research" },
+];
+
 export default function Header() {
   return (
     <div className="w-screen bg-[#181818] text-xs">
@@ -27,44 +36,29 @@ export default function Header() {
                 />
               </svg>
             </label>
-                          <ul
-                tabIndex={0}
-                className="z-30 menu menu-md dropdown-content mt-3 p-2 shadow bg-zinc-950 rounded-box w-52 text-zinc-300"
-              >
-                <li>
-                  <Link className="text-lg hover:text-zinc-100 transition-colors duration-200 hover:bg-transparent active:bg-transparent" href="/">
-                    Home
-                  </Link>
-                </li>
-                <li>
-                  <Link className="text-lg hover:text-zinc-100 transition-colors duration-200 hover:bg-transparent active:bg-transparent" href="/about">
-                    About
-                  </Link>
-                </li>
-                <li>
-                  <Link className="text-lg hover:text-zinc-100 transition-colors duration-200 hover:bg-transparent active:bg-transparent" href="/community">
-                    Community
-                  </Link>
-                </li>
-                <li>
-                  <Link className="text-lg hover:text-zinc-100 transition-colors duration-200 hover:bg-transparent active:bg-transparent" href="/projects">
-                    Our Lab
-                  </Link>
-                </li>
-                <li>
-                  <Link className="text-lg hover:text-zinc-100 transition-colors duration-200 hover:bg-transparent active:bg-transparent" href="/papers">
-                    Research
-                  </Link>
-                </li>
-                <li>
+            <ul
+              tabIndex={0}
+              className="z-30 menu menu-md dropdown-content mt-3 p-2 shadow bg-zinc-950 rounded-box w-52 text-zinc-300"
+            >
+              {navLinks.map(({ href, label }) => (
+                <li key={href}>
                   <Link
                     className="text-lg hover:text-zinc-100 transition-colors duration-200 hover:bg-transparent active:bg-transparent"
-                    href="/apply"
+                    href={href}
                   >
-                    Join
+                    {label}
                   </Link>
                 </li>
-              </ul>
+              ))}
+              <li>
+                <Link
+                  className="text-lg hover:text-zinc-100 transition-colors duration-200 hover:bg-transparent active:bg-transparent"
+                  href="/apply"
+                >
+                  Join
+                </Link>
+              </li>
+            </ul>
           </div>
           <Link href="/" className="hover:bg-transparent active:bg-transparent ml-2">
             <Image
@@ -78,29 +72,23 @@ export default function Header() {
         </div>
         <div className="navbar-center">
           <div className="hidden lg:flex">
-              <ul className="menu menu-horizontal px-1 text-zinc-200 text-xl">
-                <li>
-                  <Link href="/" className="hover:text-zinc-100 transition-colors duration-200 hover:bg-transparent active:bg-transparent">Home</Link>
+            <ul className="menu menu-horizontal px-1 text-zinc-200 text-xl">
+              {navLinks.map(({ href, label }) => (
+                <li key={href}>
+                  <Link
+                    href={href}
+                    className="hover:text-zinc-100 transition-colors duration-200 hover:bg-transparent active:bg-transparent"
+                  >
+                    {label}
+                  </Link>
                 </li>
-                <li>
-                  <Link href="/about" className="hover:text-zinc-100 transition-colors duration-200 hover:bg-transparent active:bg-transparent">About</Link>
-                </li>
-                <li>
-                  <Link href="/community" className="hover:text-zinc-100 transition-colors duration-200 hover:bg-transparent active:bg-transparent">Community</Link>
-                </li>
-                <li>
-                  <Link href="/projects" className="hover:text-zinc-100 transition-colors duration-200 hover:bg-transparent active:bg-transparent">Our Lab</Link>
-                </li>
-                <li>
-                  <Link href="/papers" className="hover:text-zinc-100 transition-colors duration-200 hover:bg-transparent active:bg-transparent">Research</Link>
-                </li>
-
-              </ul>
+              ))}
+            </ul>
           </div>
         </div>
         <div className="navbar-end">
-          <Link 
-            href="/apply" 
+          <Link
+            href="/apply"
             className="inline-flex items-center px-5 py-3 mr-2 bg-transparent border border-white text-white text-sm font-medium rounded-full hover:border-zinc-500 hover:text-zinc-300 transition-colors duration-300"
           >
             Join

@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import Header from "../components/Header";
 import Footer from "../components/footer";
 import { membersBySemester, ALL_SEMESTERS, CURRENT_SEMESTER } from "@/data/members";
+import { siteConfig } from "@/data/site";
 
 export default function MembersPage() {
   const [selectedSemester, setSelectedSemester] = useState(CURRENT_SEMESTER);
@@ -45,7 +46,7 @@ export default function MembersPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            Meet the passionate students and researchers driving quantum engineering at SJSU
+            Meet the passionate students and researchers driving quantum engineering at {siteConfig.schoolShort}
           </motion.p>
 
           {/* Semester selector */}
@@ -97,14 +98,7 @@ export default function MembersPage() {
                 <h3 className="text-lg font-semibold mb-1 group-hover:text-white transition-colors">
                   {member.name}
                 </h3>
-                <p className="text-sm text-zinc-500 mb-2 flex items-center justify-center gap-2 flex-wrap">
-                  <span>{member.role}</span>
-                  {member.msqt && (
-                    <span className="text-xs font-semibold text-white">
-                      MSQT
-                    </span>
-                  )}
-                </p>
+                <p className="text-sm text-zinc-500 mb-2">{member.role}</p>
                 {member.linkedin && (
                   <a
                     href={member.linkedin}

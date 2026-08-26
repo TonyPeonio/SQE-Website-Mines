@@ -9,6 +9,7 @@ import Header from "./components/Header";
 import Footer from "./components/footer";
 import { getMemberCount } from "@/data/members";
 import { getHomepageHeroCta } from "@/data/siteBanners";
+import { accentCtaClassName, siteConfig } from "@/data/site";
 
 const ALL_LOGOS = [
   "/logos/ibm.png",
@@ -43,7 +44,7 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut", delay: 0 }}
           >
-            at San José State University
+            at {siteConfig.school}
           </motion.h2>
           <motion.p
             className="mt-10 text-sm sm:text-base md:text-lg text-zinc-400"
@@ -51,7 +52,7 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6, duration: 0.6, ease: "easeOut" }}
           >
-            We are devoted to building the quantum community within SJSU, connecting faculty and students.
+            {siteConfig.tagline}
           </motion.p>
           <motion.div
             className="mt-5 flex flex-col items-center gap-3"
@@ -72,8 +73,7 @@ export default function Home() {
                   ? { target: "_blank", rel: "noopener noreferrer" }
                   : {})}
                 className={
-                  heroCta.homepageCtaClassName ??
-                  "inline-flex items-center px-4 py-2 bg-[#FFC72C] text-[#181818] text-sm font-semibold rounded-full hover:bg-[#E6B326] transition-colors duration-300"
+                  heroCta.homepageCtaClassName ?? accentCtaClassName
                 }
               >
                 {heroCta.ctaLabel}
@@ -128,7 +128,7 @@ export default function Home() {
               transition={{ duration: 0.6, delay: 0.2 }}
               viewport={{ once: true }}
             >
-              <div className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-2">2+</div>
+              <div className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-2">{siteConfig.stats.researchProjects}</div>
               <div className="text-lg text-zinc-400">Research Projects</div>
             </motion.div>
             <motion.div
@@ -138,7 +138,7 @@ export default function Home() {
               transition={{ duration: 0.6, delay: 0.3 }}
               viewport={{ once: true }}
             >
-              <div className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-2">4+</div>
+              <div className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-2">{siteConfig.stats.facultyCollaborations}</div>
               <div className="text-lg text-zinc-400">Faculty Collaborations</div>
             </motion.div>
           </div>

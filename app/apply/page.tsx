@@ -1,29 +1,15 @@
 "use client";
 import React from "react";
-import Head from "next/head";
 import Image from "next/image";
-import Link from "next/link";
 import { motion } from "framer-motion";
 import Header from "../components/Header";
 import Footer from "../components/footer";
+import { siteConfig } from "@/data/site";
 
 export default function JoinUsPage() {
 
   return (
     <div className="relative min-h-screen flex flex-col bg-[#181818] text-white overflow-hidden">
-      <Head>
-        <title>Join SQE | Society of Quantum Engineers at SJSU</title>
-        <style>{`
-          @media (min-width: 640px) {
-            .image-container-wrapper {
-              border-radius: 0.5rem;
-            }
-            .image-container-wrapper > * {
-              border-radius: inherit;
-            }
-          }
-        `}</style>
-      </Head>
       <Header />
       
       <main className="relative flex-grow flex flex-col">
@@ -69,7 +55,7 @@ export default function JoinUsPage() {
               transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
             >
               <a
-                href="https://discord.gg/j5x7jWx3sa"
+                href={siteConfig.social.discord}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center px-4 py-2 bg-transparent border border-zinc-600 text-zinc-300 text-sm font-medium rounded-full hover:border-zinc-500 hover:text-white transition-colors"

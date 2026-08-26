@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import {
@@ -11,13 +11,16 @@ import {
   BANNER_ROTATE_INTERVAL_MS,
   getBannerById,
 } from "@/data/siteBanners";
+import { accentCtaClassName, siteConfig } from "@/data/site";
 
 function BannerCta({ banner }: { banner: SiteBanner }) {
   const linkClass = "inline-flex w-fit items-center";
+  const { accent } = siteConfig.colors;
 
   const label = banner.animateCta ? (
     <motion.span
-      className="relative inline-flex text-xs font-semibold uppercase tracking-wide text-[#FFC72C] transition hover:text-white"
+      className="relative inline-flex text-xs font-semibold uppercase tracking-wide transition hover:text-white"
+      style={{ color: accent }}
       animate={{ opacity: [1, 0.75, 1] }}
       transition={{
         duration: 1.6,
@@ -41,7 +44,7 @@ function BannerCta({ banner }: { banner: SiteBanner }) {
       />
     </motion.span>
   ) : (
-    <span className="inline-flex items-center px-4 py-2 text-xs font-semibold uppercase tracking-wide text-[#181818] bg-[#FFC72C] rounded-full hover:bg-[#E6B326] transition-colors duration-300">
+    <span className={accentCtaClassName + " text-xs uppercase tracking-wide"}>
       {banner.ctaLabel}
     </span>
   );
@@ -75,9 +78,10 @@ function resolveInitialBannerId(): string | null {
 }
 
 export default function SiteBannerBar() {
-  const [bannerId, setBannerId] = useState<string | null>(resolveInitialBannerId);
+  const [bannerId, setBannerId] = React.useState<string | null>(resolveInitialBannerId);
+  const { primary, accent } = siteConfig.colors;
 
-  useEffect(() => {
+  React.useEffect(() => {
     if (!AUTO_ROTATE_BANNERS || ROTATING_BANNER_IDS.length < 2) {
       setBannerId(ACTIVE_BANNER_ID);
       return;
@@ -104,10 +108,16 @@ export default function SiteBannerBar() {
   if (!banner) return null;
 
   return (
-    <div className="border-b border-[#0055A2]/70 bg-gradient-to-r from-[#002B5C]/45 via-[#003B7A]/35 to-[#002B5C]/45">
+    <div
+      className="border-b"
+      style={{
+        borderColor: `${primary}B3`,
+        background: `linear-gradient(to right, ${primary}73, ${primary}59, ${primary}73)`,
+      }}
+    >
       <div className="mx-auto flex w-full max-w-7xl flex-col gap-2 px-4 py-3 text-zinc-100 sm:flex-row sm:items-center sm:justify-between sm:gap-4 sm:px-6 lg:px-8">
         <div className="flex flex-col">
-          <p className="text-sm font-semibold tracking-wide text-[#FFC72C]">
+          <p className="text-sm font-semibold tracking-wide" style={{ color: accent }}>
             {banner.title}
           </p>
           <p className="text-xs text-zinc-100/90">{banner.subtitle}</p>

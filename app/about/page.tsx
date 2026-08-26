@@ -2,13 +2,13 @@
 
 import React, { useState } from "react";
 import Footer from "../components/footer";
-import Head from "next/head";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import Image from "next/image";
 import { Laptop, Briefcase, Camera, Linkedin } from "lucide-react";
 import Header from "../components/Header";
 import { membersBySemester, ALL_SEMESTERS, CURRENT_SEMESTER, type Member } from "../../data/members";
+import { siteConfig } from "@/data/site";
 
 function LeadershipGrid({ members }: { members: Member[] }) {
   const [ref, inView] = useInView({
@@ -56,11 +56,6 @@ function LeadershipGrid({ members }: { members: Member[] }) {
               <h2 className="text-sm font-semibold">{leader.name}</h2>
               <p className="text-xs flex items-center gap-1.5 flex-wrap">
                 <span>{leader.role}</span>
-                {leader.msqt && (
-                  <span className="text-[10px] font-semibold text-white">
-                    MSQT
-                  </span>
-                )}
               </p>
             </div>
             {leader.linkedin && (
@@ -88,15 +83,11 @@ export default function AboutPage() {
 
   return (
     <div className="relative bg-[#181818]">
-      <Head>
-        <title>About | SQE Society of Quantum Engineers at SJSU</title>
-      </Head>
-
       <Header />
 
       <section className="relative w-screen h-[70vh]">
         <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-[#181818] to-transparent z-20"></div>
-        <Image src="/community/2025-2026-cycle/unboxing.png" alt="SQE Team" fill priority className="object-cover" />
+        <Image src="/community/group.png" alt="SQE Team at Mines" fill priority className="object-cover" />
         <div className="absolute inset-0 bg-black/40 flex items-start justify-center pt-16 sm:pt-20">
           <div className="text-center text-white px-6">
             <motion.h1
@@ -121,11 +112,12 @@ export default function AboutPage() {
             <div className="lg:w-1/2 lg:pr-6">
               <br />
               <p className="mt-8 text-lg text-zinc-300">
-                SQE Society of Quantum Engineers is a student-led organization at San José State University dedicated to advancing quantum engineering and building a strong quantum community. We unite passionate students and faculty to explore the frontiers of quantum technology.
+                {siteConfig.name} is a student-led organization at {siteConfig.school} dedicated to advancing quantum engineering and building a strong quantum community. We unite passionate students and faculty to explore the frontiers of quantum technology.
               </p>
               <br />
               <p className="mb-8 text-lg text-zinc-300">
-                We are devoted to building the quantum community within SJSU, connecting faculty and students through research collaboration, educational events, and hands-on quantum engineering projects.</p>
+                {siteConfig.tagline}
+              </p>
             </div>
             <div className="lg:w-1/2 lg:pl-6 flex justify-center lg:justify-end">
               <figure className="border border-white/20 rounded-lg overflow-hidden"><Image src="/community/blochlogo.png" width={400} height={240} alt="SQE Bloch Logo"/></figure>
