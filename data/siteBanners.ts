@@ -39,9 +39,18 @@ export const SITE_BANNERS: Record<string, SiteBanner> = {
     showOnHomepage: true,
     homepageCtaClassName: accentCtaClassName,
   },
+  "qiskit-fall-fest": {
+    id: "qiskit-fall-fest",
+    title: "Qiskit Fall Fest",
+    subtitle: "November 9–13 — Workshops, talks, and hands-on quantum computing",
+    ctaLabel: "Learn More",
+    ctaHref: "/qiskit-fall-fest",
+    showOnHomepage: true,
+    homepageCtaClassName: accentCtaClassName,
+  },
 };
 
-export const ACTIVE_BANNER_ID: string | null = "summer-break-discord";
+export const ACTIVE_BANNER_ID: string | null = "qiskit-fall-fest";
 
 export const AUTO_ROTATE_BANNERS = false;
 export const ROTATING_BANNER_IDS: string[] = [
