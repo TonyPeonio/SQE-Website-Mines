@@ -7,7 +7,7 @@ import { Calendar, Cpu, Users, Zap } from "lucide-react";
 import Header from "../components/Header";
 import Footer from "../components/footer";
 import { qiskitFallFest } from "@/data/qiskitFallFest";
-import { accentCtaClassName, outlineBtnClassName, sectionDividerClassName, gridCardClassName, siteConfig } from "@/data/site";
+import { accentCtaClassName, sectionDividerClassName, gridCardClassName, siteConfig } from "@/data/site";
 
 const highlightIcons = [Cpu, Zap, Users, Calendar];
 
@@ -80,7 +80,7 @@ export default function QiskitFallFestPage() {
               </a>
               <a
                 href="#schedule"
-                className={outlineBtnClassName}
+                className={accentCtaClassName}
               >
                 View Schedule
               </a>

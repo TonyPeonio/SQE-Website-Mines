@@ -78,8 +78,8 @@ export default function Header() {
             </ul>
           </div>
         </div>
-        <div className="navbar-end">
-          <Link href="/apply" className={accentCtaClassName + " mr-2 px-5 py-3"}>
+        <div className="navbar-end pr-4 sm:pr-6">
+          <Link href="/apply" className={accentCtaClassName + " px-5 py-3"}>
             Join
           </Link>
         </div>

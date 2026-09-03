@@ -5,8 +5,6 @@ module.exports = {
 	content: [
 		"./app/**/*.{js,ts,jsx,tsx,mdx}",
 		"./data/**/*.{js,ts}",
-		"./mdx-components.tsx",
-		"content/**/*.mdx",
 		"./components/**/*.{js,ts,jsx,tsx,mdx}",
 	],
 
