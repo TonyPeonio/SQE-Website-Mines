@@ -53,14 +53,24 @@ export default function EventsPage() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4, delay: index * 0.1 }}
                 >
-                  <div className="relative h-52 overflow-hidden bg-black flex items-center justify-center p-8">
-                    <Image
-                      src={event.image}
-                      alt={event.title}
-                      width={200}
-                      height={120}
-                      className="w-full max-w-[200px] h-auto object-contain opacity-90 group-hover:opacity-100 transition-opacity duration-300"
-                    />
+                  <div className="relative h-52 overflow-hidden bg-black flex items-center justify-center">
+                    {event.imageStyle === "photo" ? (
+                      <Image
+                        src={event.image}
+                        alt={event.title}
+                        fill
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                        className="object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-300"
+                      />
+                    ) : (
+                      <Image
+                        src={event.image}
+                        alt={event.title}
+                        width={200}
+                        height={120}
+                        className="w-full max-w-[280px] h-auto object-contain opacity-90 group-hover:opacity-100 transition-opacity duration-300 px-6"
+                      />
+                    )}
                   </div>
                   <div className="p-6">
                     <div className="flex items-center gap-2 text-mines-silver text-sm mb-2">
@@ -73,13 +83,15 @@ export default function EventsPage() {
                     <p className="text-mines-silver text-sm leading-relaxed mb-4">
                       {event.description}
                     </p>
-                    <Link
-                      href={event.href}
-                      className="inline-flex items-center text-sm font-medium text-mines-navy hover:text-mines-navy-dark transition-colors"
-                    >
-                      View event details
-                      <ArrowRight className="w-4 h-4 ml-1" />
-                    </Link>
+                    {event.href ? (
+                      <Link
+                        href={event.href}
+                        className="inline-flex items-center text-sm font-medium text-mines-navy hover:text-mines-navy-dark transition-colors"
+                      >
+                        View event details
+                        <ArrowRight className="w-4 h-4 ml-1" />
+                      </Link>
+                    ) : null}
                   </div>
                 </motion.article>
               ))}
