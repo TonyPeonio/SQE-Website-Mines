@@ -10,45 +10,46 @@
 export const qiskitFallFest = {
   title: "Qiskit Fall Fest",
   dates: "November 9–13, 2025",
+  location: "Quantum Theory Lab — CoorsTek 230",
   tagline: "A week of quantum computing workshops, talks, and hands-on coding at Mines.",
   description:
     "Join SQE for Qiskit Fall Fest — a global celebration of quantum computing hosted by IBM Quantum. We'll spend the week exploring quantum concepts, building circuits in Qiskit, and connecting with fellow students passionate about the quantum future.",
   registrationUrl: null as string | null,
   schedule: [
     {
-      day: "Sunday, Nov 9",
-      title: "Kickoff & Quantum Foundations",
+      day: "Monday, Nov 9",
+      title: "Introduction to Qiskit & Hackathon Kickoff",
       time: "TBD",
       description:
-        "Welcome session, overview of the week's events, and an introduction to quantum computing concepts.",
+        "Beginners welcome! Get started with Qiskit and quantum computing fundamentals. Hackathon prompts released.",
     },
     {
-      day: "Monday, Nov 10",
-      title: "Intro to Qiskit",
+      day: "Tuesday, Nov 10",
+      title: "Advanced Qiskit Workshop",
       time: "TBD",
       description:
-        "Hands-on workshop building your first quantum circuits with IBM's open-source Qiskit SDK.",
+        "Dive deeper into Qiskit with advanced techniques, circuits, and quantum algorithms.",
     },
     {
-      day: "Tuesday, Nov 11",
-      title: "Quantum Algorithms",
+      day: "Wednesday, Nov 11",
+      title: "Quantum Industry Speaker",
       time: "TBD",
       description:
-        "Explore foundational algorithms like Deutsch-Jozsa, Grover's search, and quantum teleportation.",
+        "Hear from a quantum industry professional about the future of quantum computing.",
     },
     {
-      day: "Wednesday, Nov 12",
-      title: "Running on Real Hardware",
+      day: "Thursday, Nov 12",
+      title: "Social Night & Hackathon Social",
       time: "TBD",
       description:
-        "Submit jobs to IBM Quantum processors and learn about noise, error mitigation, and result analysis.",
+        "Unwind, connect with fellow participants, and keep hacking on your projects in a casual setting.",
     },
     {
-      day: "Thursday, Nov 13",
-      title: "Project Showcase & Closing",
+      day: "Friday, Nov 13",
+      title: "Quantum Game Night",
       time: "TBD",
       description:
-        "Share what you've built during the week, celebrate with the community, and wrap up Fall Fest.",
+        "Wrap up the week with Quantum Jeopardy and other quantum-themed games. Prizes and fun guaranteed!",
     },
   ],
   highlights: [

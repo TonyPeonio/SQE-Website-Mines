@@ -2,7 +2,6 @@
 
 import React from "react";
 import Image from "next/image";
-import Link from "next/link";
 import { motion } from "framer-motion";
 import { Calendar, Cpu, Users, Zap } from "lucide-react";
 import Header from "../components/Header";
@@ -79,12 +78,12 @@ export default function QiskitFallFestPage() {
               >
                 {ctaLabel}
               </a>
-              <Link
-                href="/events"
+              <a
+                href="#schedule"
                 className={outlineBtnClassName}
               >
-                View Events
-              </Link>
+                View Schedule
+              </a>
             </motion.div>
           </div>
         </section>
@@ -170,7 +169,7 @@ export default function QiskitFallFestPage() {
         </section>
 
         {/* Schedule */}
-        <section className="px-6 pb-16 md:pb-24">
+        <section id="schedule" className="px-6 pb-16 md:pb-24 scroll-mt-20">
           <div className="mx-auto max-w-6xl">
             <motion.div
               className="mb-10"

@@ -7,7 +7,7 @@ export const siteConfig = {
   tagline:
     "Building the quantum community at Mines, connecting faculty and students.",
   url: "",
-  contactEmail: null as string | null,
+  contactEmail: "MinesSQE@gmail.com",
   social: {
     instagram: "https://www.instagram.com/mines_sqe/",
     linkedin: "https://www.linkedin.com/company/mines-sqe/posts/",
@@ -24,7 +24,7 @@ export const siteConfig = {
     border: "#D1D5DB",
   },
   lab: {
-    location: "TBD — Mines campus building/room",
+    location: "Quantum Theory Lab — CoorsTek 230",
     description:
       "Our clubroom is home to our quantum lab at Colorado School of Mines.",
   },
