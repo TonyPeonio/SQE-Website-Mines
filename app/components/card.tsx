@@ -23,7 +23,7 @@ export const Card: React.FC<PropsWithChildren> = ({ children }) => {
 	return (
 		<div
 			onMouseMove={onMouseMove}
-			className="overflow-hidden relative duration-700 border border-white/10 hover:bg-white/[0.03] transition-colors group md:gap-8"
+			className="overflow-hidden relative duration-700 border border-mines-navy/10 hover:bg-mines-silver-light/50 transition-colors group md:gap-8"
 		>
 			<div className="pointer-events-none">
 				<div className="absolute inset-0 z-0  transition duration-1000 [mask-image:linear-gradient(black,transparent)]" />

@@ -115,12 +115,12 @@ export default function SiteBannerBar() {
         background: `linear-gradient(to right, ${primary}73, ${primary}59, ${primary}73)`,
       }}
     >
-      <div className="mx-auto flex w-full max-w-7xl flex-col gap-2 px-4 py-3 text-zinc-100 sm:flex-row sm:items-center sm:justify-between sm:gap-4 sm:px-6 lg:px-8">
+      <div className="mx-auto flex w-full max-w-7xl flex-col gap-2 px-4 py-3 text-white sm:flex-row sm:items-center sm:justify-between sm:gap-4 sm:px-6 lg:px-8">
         <div className="flex flex-col">
           <p className="text-sm font-semibold tracking-wide" style={{ color: accent }}>
             {banner.title}
           </p>
-          <p className="text-xs text-zinc-100/90">{banner.subtitle}</p>
+          <p className="text-xs text-white/90">{banner.subtitle}</p>
         </div>
         <BannerCta banner={banner} />
       </div>

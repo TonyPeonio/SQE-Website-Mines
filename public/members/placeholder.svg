@@ -1,4 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128">
-  <rect width="128" height="128" fill="#21314d"/>
-  <text x="64" y="72" font-family="sans-serif" font-size="14" fill="#c5b783" text-anchor="middle">TBD</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256" fill="none">
+  <rect width="256" height="256" fill="#E8EAEB"/>
+  <circle cx="128" cy="96" r="40" fill="#8B9196"/>
+  <path d="M48 224c0-44.183 35.817-80 80-80s80 35.817 80 80" fill="#8B9196"/>
 </svg>

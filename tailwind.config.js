@@ -4,6 +4,7 @@ const defaultTheme = require("tailwindcss/defaultTheme");
 module.exports = {
 	content: [
 		"./app/**/*.{js,ts,jsx,tsx,mdx}",
+		"./data/**/*.{js,ts}",
 		"./mdx-components.tsx",
 		"content/**/*.mdx",
 		"./components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -11,6 +12,16 @@ module.exports = {
 
 	theme: {
 		extend: {
+			colors: {
+				mines: {
+					navy: "#21314D",
+					"navy-dark": "#1A2740",
+					silver: "#8B9196",
+					"silver-light": "#E8EAEB",
+					black: "#1A1A1A",
+					white: "#FFFFFF",
+				},
+			},
 			dropShadow: {
 				glow: [
 				"0 0px 20px rgba(255,255, 255, 0.15)",

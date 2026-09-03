@@ -17,12 +17,12 @@ export type SiteBanner = {
 };
 
 export const SITE_BANNERS: Record<string, SiteBanner> = {
-  "summer-break-discord": {
-    id: "summer-break-discord",
+  "summer-break-newsletter": {
+    id: "summer-break-newsletter",
     title: "Join SQE at Mines",
-    subtitle: "Connect with us on Discord",
-    ctaLabel: "Join Discord",
-    ctaHref: siteConfig.social.discord,
+    subtitle: "Subscribe to our newsletter",
+    ctaLabel: "Join Newsletter",
+    ctaHref: siteConfig.social.newsletter,
     ctaExternal: true,
     showOnHomepage: true,
     homepageCtaClassName: accentCtaClassName,
@@ -33,8 +33,8 @@ export const SITE_BANNERS: Record<string, SiteBanner> = {
     subtitle:
       "Apply with your Mines email. Application details coming soon.",
     ctaLabel: "APPLY FOR LEADERSHIP",
-    ctaHref: "https://forms.gle/TBD",
-    ctaExternal: true,
+    ctaHref: "/apply",
+    ctaExternal: false,
     animateCta: true,
     showOnHomepage: true,
     homepageCtaClassName: accentCtaClassName,
@@ -43,7 +43,7 @@ export const SITE_BANNERS: Record<string, SiteBanner> = {
     id: "qiskit-fall-fest",
     title: "Qiskit Fall Fest",
     subtitle: "November 9–13 — Workshops, talks, and hands-on quantum computing",
-    ctaLabel: "Learn More",
+    ctaLabel: "View Event",
     ctaHref: "/qiskit-fall-fest",
     showOnHomepage: true,
     homepageCtaClassName: accentCtaClassName,
@@ -54,7 +54,7 @@ export const ACTIVE_BANNER_ID: string | null = "qiskit-fall-fest";
 
 export const AUTO_ROTATE_BANNERS = false;
 export const ROTATING_BANNER_IDS: string[] = [
-  "summer-break-discord",
+  "summer-break-newsletter",
   "leadership-applications",
 ];
 export const BANNER_ROTATE_INTERVAL_MS = 10_000;

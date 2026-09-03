@@ -7,9 +7,7 @@ import { Users, Code, Newspaper, HeartHandshake } from "lucide-react";
 
 import Header from "./components/Header";
 import Footer from "./components/footer";
-import { getMemberCount } from "@/data/members";
-import { getHomepageHeroCta } from "@/data/siteBanners";
-import { accentCtaClassName, siteConfig } from "@/data/site";
+import { siteConfig, accentCtaClassName, outlineBtnClassName, pageShellClassName, sectionDividerClassName, gridCardClassName } from "@/data/site";
 
 const ALL_LOGOS = [
   "/logos/ibm.png",
@@ -27,19 +25,17 @@ const ALL_LOGOS = [
 ];
 
 export default function Home() {
-  const heroCta = getHomepageHeroCta();
-
   return (
-    <div className="w-screen min-h-screen overflow-hidden bg-[#181818] text-white">
+    <div className={pageShellClassName}>
       <Header />
-      <section className="bg-[#181818] flex flex-col items-center text-center pt-6 pb-20 sm:pt-24 sm:pb-20">
+      <section className="bg-white flex flex-col items-center text-center pt-6 pb-20 sm:pt-24 sm:pb-20">
         <br></br>
         <div className="max-w-4xl mx-auto mb-5">
-          <h1 className="font-display tracking-tight text-4xl sm:text-5xl md:text-6xl leading-tight font-extrabold text-white pb-2">
+          <h1 className="font-display tracking-tight text-4xl sm:text-5xl md:text-6xl leading-tight font-extrabold text-mines-navy pb-2">
             SQE Society of Quantum Engineers
           </h1>
           <motion.h2
-            className="mt-2 font-display tracking-tight text-2xl sm:text-3xl md:text-4xl leading-tight font-light text-zinc-400"
+            className="mt-2 font-display tracking-tight text-2xl sm:text-3xl md:text-4xl leading-tight font-light text-mines-silver"
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut", delay: 0 }}
@@ -47,7 +43,7 @@ export default function Home() {
             at {siteConfig.school}
           </motion.h2>
           <motion.p
-            className="mt-10 text-sm sm:text-base md:text-lg text-zinc-400"
+            className="mt-10 text-sm sm:text-base md:text-lg text-mines-silver"
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6, duration: 0.6, ease: "easeOut" }}
@@ -55,36 +51,23 @@ export default function Home() {
             {siteConfig.tagline}
           </motion.p>
           <motion.div
-            className="mt-5 flex flex-col items-center gap-3"
+            className="mt-5 flex flex-col sm:flex-row items-center justify-center gap-3"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6, duration: 0.6, ease: "easeOut" }}
           >
-            <a
-              href="/about"
-              className="inline-flex items-center px-4 py-2 bg-transparent border border-zinc-600 text-zinc-400 text-sm font-medium rounded-full hover:border-zinc-500 hover:text-zinc-300 transition-colors duration-300"
-            >
-              Learn More
+            <a href="/about" className={outlineBtnClassName}>
+              About Us
             </a>
-            {heroCta && (
-              <a
-                href={heroCta.ctaHref}
-                {...(heroCta.ctaExternal
-                  ? { target: "_blank", rel: "noopener noreferrer" }
-                  : {})}
-                className={
-                  heroCta.homepageCtaClassName ?? accentCtaClassName
-                }
-              >
-                {heroCta.ctaLabel}
-              </a>
-            )}
+            <a href="/apply" className={accentCtaClassName}>
+              Join SQE
+            </a>
           </motion.div>
         </div>
 
         <div className="relative -mx-10 mt-10 w-full aspect-video [mask-image:radial-gradient(ellipse_at_center,black_20%,transparent_100%)]">
-          <div className="absolute top-0 left-0 right-0 h-20 bg-gradient-to-b from-[#181818] to-transparent z-10"></div>
-          <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-[#181818] to-transparent z-10"></div>
+          <div className="absolute top-0 left-0 right-0 h-20 bg-gradient-to-b from-white to-transparent z-10"></div>
+          <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-white to-transparent z-10"></div>
           <Image
             src="/home.jpeg"
             alt="SQE Home"
@@ -94,60 +77,10 @@ export default function Home() {
           />
         </div>
       </section>
-
-      <section className="bg-[#181818] px-6 pt-10 pb-6">
+      <section className="bg-white px-6 py-8 sm:py-20">
         <div className="mx-auto max-w-6xl text-left">
           <motion.h2
-            className="text-2xl sm:text-3xl md:text-4xl font-semibold mb-8"
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-          >
-            By The Numbers
-          </motion.h2>
-          <br></br>
-          <br></br>
-        </div>
-        <div className="mx-auto max-w-6xl text-center">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <motion.div
-              className="text-center"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              viewport={{ once: true }}
-            >
-              <div className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-2">{getMemberCount()}+</div>
-              <div className="text-lg text-zinc-400">Active Members</div>
-            </motion.div>
-            <motion.div
-              className="text-center"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              viewport={{ once: true }}
-            >
-              <div className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-2">{siteConfig.stats.researchProjects}</div>
-              <div className="text-lg text-zinc-400">Research Projects</div>
-            </motion.div>
-            <motion.div
-              className="text-center"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              viewport={{ once: true }}
-            >
-              <div className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-2">{siteConfig.stats.facultyCollaborations}</div>
-              <div className="text-lg text-zinc-400">Faculty Collaborations</div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-      <section className="bg-[#181818] py-8 sm:py-20">
-        <div className="mx-auto max-w-6xl text-left">
-          <motion.h2
-            className="text-2xl sm:text-3xl md:text-4xl font-semibold mb-8"
+            className="text-2xl sm:text-3xl md:text-4xl font-semibold mb-8 text-mines-navy"
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -160,48 +93,48 @@ export default function Home() {
         <div className="mx-auto max-w-6xl">
           <div className="relative">
             <motion.div
-              className="grid grid-cols-1 md:grid-cols-2 border border-white/10 overflow-hidden relative z-20"
+              className="grid grid-cols-1 md:grid-cols-2 border border-mines-navy/10 overflow-hidden relative z-20"
               initial={{ opacity: 0, y: 18 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
               viewport={{ once: true, amount: 0.3 }}
             >
-            <div className="px-8 py-16 h-80 border-b border-r border-white/10 hover:bg-white/[0.03] transition-colors">
+            <div className={`px-8 py-16 h-80 border-b border-r border-mines-navy/10 ${gridCardClassName}`}>
               <div className="mb-6">
-                <Users className="w-6 h-6 text-white mb-4" />
-                <h3 className="text-xl font-semibold">Research Collaboration</h3>
+                <Users className="w-6 h-6 text-mines-navy mb-4" />
+                <h3 className="text-xl font-semibold text-mines-navy">Research Collaboration</h3>
               </div>
-              <p className="text-zinc-300 leading-relaxed">
+              <p className="text-mines-silver leading-relaxed">
               We collaborate with faculty and industry partners to advance quantum
               research and develop cutting-edge technologies.
               </p>
             </div>
-            <div className="px-8 py-16 h-80 border-b border-white/10 hover:bg-white/[0.03] transition-colors">
+            <div className={`px-8 py-16 h-80 border-b border-mines-navy/10 ${gridCardClassName}`}>
               <div className="mb-6">
-                <Code className="w-6 h-6 text-white mb-4" />
-                <h3 className="text-xl font-semibold">Quantum Engineering</h3>
+                <Code className="w-6 h-6 text-mines-navy mb-4" />
+                <h3 className="text-xl font-semibold text-mines-navy">Quantum Engineering</h3>
               </div>
-              <p className="text-zinc-300 leading-relaxed">
+              <p className="text-mines-silver leading-relaxed">
               We work on quantum algorithms, quantum computing systems, and quantum
               optics to push the boundaries of quantum technology.
               </p>
             </div>
-            <div className="px-8 py-16 h-80 border-r border-white/10 hover:bg-white/[0.03] transition-colors">
+            <div className={`px-8 py-16 h-80 border-r border-mines-navy/10 ${gridCardClassName}`}>
               <div className="mb-6">
-                <Newspaper className="w-6 h-6 text-white mb-4" />
-                <h3 className="text-xl font-semibold">Research</h3>
+                <Newspaper className="w-6 h-6 text-mines-navy mb-4" />
+                <h3 className="text-xl font-semibold text-mines-navy">Research</h3>
               </div>
-              <p className="text-zinc-300 leading-relaxed">
+              <p className="text-mines-silver leading-relaxed">
               We work on quantum engineering research and contribute to the
               community through collaborative projects and presentations.
               </p>
             </div>
-            <div className="px-8 py-16 h-80 hover:bg-white/[0.03] transition-colors">
+            <div className={`px-8 py-16 h-80 ${gridCardClassName}`}>
               <div className="mb-6">
-                <HeartHandshake className="w-6 h-6 text-white mb-4" />
-                <h3 className="text-xl font-semibold">Community Building</h3>
+                <HeartHandshake className="w-6 h-6 text-mines-navy mb-4" />
+                <h3 className="text-xl font-semibold text-mines-navy">Community Building</h3>
               </div>
-              <p className="text-zinc-300 leading-relaxed">
+              <p className="text-mines-silver leading-relaxed">
                 We foster connections between students and faculty through events,
                 workshops, and collaborative research projects.
               </p>
@@ -210,10 +143,10 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section className="bg-[#181818] pt-4 pb-16">
+      <section className="bg-white px-6 pt-4 pb-16">
         <div className="mx-auto max-w-6xl text-left">
           <motion.h2
-            className="text-2xl sm:text-3xl md:text-4xl font-semibold mb-16"
+            className="text-2xl sm:text-3xl md:text-4xl font-semibold mb-16 text-mines-navy"
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -232,7 +165,7 @@ export default function Home() {
                 return (
                   <motion.div
                     key={`logo-${i}`}
-                    className="relative h-24 border border-white/10 hover:bg-white/[0.03] transition-colors p-4 flex items-center justify-center group"
+                    className="relative h-24 bg-black border border-white/10 p-4 flex items-center justify-center group hover:bg-zinc-900 transition-colors"
                     initial={{ opacity: 0, y: 20, scale: 0.8 }}
                     whileInView={{ opacity: 1, y: 0, scale: 1 }}
                     transition={{ 
@@ -247,7 +180,7 @@ export default function Home() {
                       alt="Company logo" 
                       width={80} 
                       height={64} 
-                      className="w-full h-full object-contain group-hover:grayscale-0 opacity-80 group-hover:opacity-100 transition"
+                      className="w-full h-full object-contain opacity-90 group-hover:opacity-100 transition"
                     />
                   </motion.div>
                 );
@@ -258,7 +191,7 @@ export default function Home() {
       <br></br>
       <br></br>
 
-      <div className="w-full h-px bg-zinc-800" />
+      <div className={sectionDividerClassName} />
       <Footer />
     </div>
   );

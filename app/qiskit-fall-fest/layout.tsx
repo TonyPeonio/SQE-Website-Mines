@@ -9,7 +9,7 @@ export default function QiskitFallFestLayout({
   children,
 }: { children: React.ReactNode }) {
   return (
-    <div className="relative min-h-screen bg-[#181818]">
+    <div className="relative min-h-screen bg-white">
       {children}
     </div>
   );

@@ -4,11 +4,14 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "dev:clean": "node -e \"require('fs').rmSync('.next',{recursive:true,force:true})\" && next dev",
     "build": "next build",
+    "build:clean": "node -e \"require('fs').rmSync('.next',{recursive:true,force:true})\" && next build",
     "start": "next start",
     "fmt": "pnpm rome check . --apply-suggested && pnpm rome format . --write"
   },
   "dependencies": {
+    "@mediapipe/tasks-vision": "^1.0.1",
     "@next/font": "^13.5.7",
     "@types/node": "20.2.1",
     "@types/react": "18.2.6",
@@ -21,6 +24,7 @@
     "react-dom": "18.2.0",
     "react-intersection-observer": "^9.13.1",
     "react-wrap-balancer": "^0.5.0",
+    "smartcrop": "^2.0.5",
     "typescript": "5.0.4"
   },
   "devDependencies": {

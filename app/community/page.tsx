@@ -5,6 +5,7 @@ import Footer from "../components/footer";
 import { motion } from 'framer-motion';
 import Header from "../components/Header";
 import { eventsByCycle, ALL_CYCLES } from "@/data/events";
+import { pillActiveClassName, pillInactiveClassName, sectionDividerClassName, gridCardClassName } from "@/data/site";
 
 export default function CommunityPage() {
   const [selectedCycle, setSelectedCycle] = useState(ALL_CYCLES[0]);
@@ -24,17 +25,17 @@ export default function CommunityPage() {
       <Header />
 
       <motion.div
-        className="bg-[#181818] pl-10 pr-10 pt-8"
+        className="bg-white pl-10 pr-10 pt-8"
         initial="hidden"
         animate="visible"
         variants={containerVariants}
       >
-        <div className="bg-[#181818]">
+        <div className="bg-white">
           <div className="px-6 mx-auto max-w-7xl lg:px-8 md:pt-4 lg:pt-6">
 
             <div className="mb-8">
               <div className="flex items-center justify-between">
-                <h1 className="text-4xl font-bold text-white">Community</h1>
+                <h1 className="text-4xl font-bold text-mines-navy">Community</h1>
 
                 {/* Cycle selector — aligned to the right */}
                 <div className="flex gap-2 flex-wrap justify-end">
@@ -44,8 +45,8 @@ export default function CommunityPage() {
                       onClick={() => setSelectedCycle(cycle)}
                       className={`px-4 py-1.5 rounded-full text-sm font-medium border transition-colors ${
                         selectedCycle === cycle
-                          ? "bg-white text-black border-white"
-                          : "bg-transparent text-zinc-400 border-white/20 hover:border-white/50 hover:text-white"
+                          ? pillActiveClassName
+                          : pillInactiveClassName
                       }`}
                     >
                       {cycle}
@@ -54,17 +55,17 @@ export default function CommunityPage() {
                 </div>
               </div>
 
-              <p className="text-zinc-400 text-lg mt-4">
+              <p className="text-mines-silver text-lg mt-4">
                 Events from our {selectedCycle} cycle.
               </p>
             </div>
 
             {events.length > 0 ? (
-              <div className="grid grid-cols-1 md:grid-cols-2 border border-white/10 overflow-hidden">
+              <div className="grid grid-cols-1 md:grid-cols-2 border border-mines-navy/10 overflow-hidden">
                 {events.map((event, index) => (
                   <motion.div
                     key={event.id}
-                    className="px-16 py-20 border-r border-b border-white/10 hover:bg-white/[0.03] transition-colors"
+                    className={`px-16 py-20 border-r border-b border-mines-navy/10 ${gridCardClassName}`}
                     initial={{ opacity: 0, scale: 0.9 }}
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true, amount: 0.3 }}
@@ -83,18 +84,18 @@ export default function CommunityPage() {
                       />
                     </div>
 
-                    <p className="text-zinc-500 text-sm mb-1">{event.date}</p>
-                    <h3 className="text-white text-lg font-medium text-left">
+                    <p className="text-mines-silver text-sm mb-1">{event.date}</p>
+                    <h3 className="text-mines-navy text-lg font-medium text-left">
                       {event.title}
                     </h3>
-                    <p className="text-zinc-400 text-sm mt-1">{event.speaker}</p>
-                    <p className="text-zinc-500 text-sm mt-2">{event.description}</p>
+                    <p className="text-mines-silver text-sm mt-1">{event.speaker}</p>
+                    <p className="text-mines-silver/80 text-sm mt-2">{event.description}</p>
                   </motion.div>
                 ))}
               </div>
             ) : (
-              <div className="border border-white/10 py-24 text-center">
-                <p className="text-zinc-500 text-lg">No events yet for this cycle. Stay tuned!</p>
+              <div className="border border-mines-navy/10 py-24 text-center">
+                <p className="text-mines-silver text-lg">No events yet for this cycle. Stay tuned!</p>
               </div>
             )}
 
@@ -102,7 +103,7 @@ export default function CommunityPage() {
         </div>
       </motion.div>
       <br /><br />
-      <div className="w-full h-px bg-zinc-800" />
+      <div className={sectionDividerClassName} />
       <Footer />
     </div>
   );

@@ -28,7 +28,7 @@ export default function RootLayout({
 				<link rel="manifest" href="/favicon/site.webmanifest" />
 			</head>
 			<body
-				className={`bg-[#181818] font-calsans ${
+				className={`bg-white text-mines-black font-calsans ${
 					process.env.NODE_ENV === "development" ? "debug-screens" : undefined
 				}`}
 			>

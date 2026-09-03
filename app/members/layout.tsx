@@ -9,7 +9,7 @@ export default function MembersLayout({
 	children,
 }: { children: React.ReactNode }) {
 	return (
-		<div className="relative min-h-screen black">
+		<div className="relative min-h-screen bg-white">
 			{children}
 		</div>
 	);
