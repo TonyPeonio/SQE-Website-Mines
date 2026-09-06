@@ -6,6 +6,7 @@ import { motion } from 'framer-motion';
 import Header from "../components/Header";
 import { eventsByCycle, ALL_CYCLES } from "@/data/events";
 import { pillActiveClassName, pillInactiveClassName, sectionDividerClassName, gridCardClassName } from "@/data/site";
+import { withBasePath } from "@/lib/basePath";
 
 export default function CommunityPage() {
   const [selectedCycle, setSelectedCycle] = useState(ALL_CYCLES[0]);
@@ -78,7 +79,7 @@ export default function CommunityPage() {
                   >
                     <div className="w-full h-80 overflow-hidden mb-4 mx-auto">
                       <img
-                        src={event.image}
+                        src={withBasePath(event.image)}
                         alt={event.title}
                         className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                       />

@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
+import { withBasePath } from "@/lib/basePath";
 
 type CropBounds = { x: number; y: number; w: number; h: number };
 type NaturalSize = { w: number; h: number };
@@ -90,12 +91,13 @@ export default function TrimmedImage({
   className = "",
   priority = false,
 }: TrimmedImageProps) {
+  const resolvedSrc = withBasePath(src);
   const [trimmed, setTrimmed] = useState<{ crop: CropBounds; natural: NaturalSize } | null>(null);
 
   useEffect(() => {
     let cancelled = false;
 
-    computeCrop(src).then((result) => {
+    computeCrop(resolvedSrc).then((result) => {
       if (!cancelled && result) {
         setTrimmed(result);
       }
@@ -104,7 +106,7 @@ export default function TrimmedImage({
     return () => {
       cancelled = true;
     };
-  }, [src]);
+  }, [resolvedSrc]);
 
   if (!trimmed) {
     return (
@@ -130,7 +132,7 @@ export default function TrimmedImage({
     >
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
-        src={src}
+        src={resolvedSrc}
         alt={alt}
         className="absolute max-w-none"
         style={{

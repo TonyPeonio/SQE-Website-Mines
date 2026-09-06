@@ -25,7 +25,10 @@ export default function RootLayout({
 	return (
 		<html lang="en" className={[inter.variable, calSans.variable].join(" ")}>
 			<head>
-				<link rel="manifest" href="/favicon/site.webmanifest" />
+				<link
+					rel="manifest"
+					href={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/favicon/site.webmanifest`}
+				/>
 			</head>
 			<body
 				className={`bg-white text-mines-black font-calsans ${

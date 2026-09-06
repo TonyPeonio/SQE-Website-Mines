@@ -2,6 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { Users, Code, Newspaper, HeartHandshake } from "lucide-react";
 
@@ -56,12 +57,12 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6, duration: 0.6, ease: "easeOut" }}
           >
-            <a href="/about" className={outlineBtnClassName}>
+            <Link href="/about" className={outlineBtnClassName}>
               About Us
-            </a>
-            <a href="/apply" className={accentCtaClassName}>
+            </Link>
+            <Link href="/apply" className={accentCtaClassName}>
               Join SQE
-            </a>
+            </Link>
           </motion.div>
         </div>
 

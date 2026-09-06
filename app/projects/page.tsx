@@ -4,6 +4,7 @@ import Footer from "../components/footer";
 import FadeInWrapper from "../components/FadeInWrapper";
 import Header from "../components/Header";
 import { siteConfig, sectionDividerClassName } from "@/data/site";
+import { withBasePath } from "@/lib/basePath";
 
 export default function WorkPage() {
 	return (
@@ -21,7 +22,7 @@ export default function WorkPage() {
 								<div className="text-center">
 									<div className="relative w-full h-96 rounded-lg overflow-hidden border border-mines-silver/40">
 										<img
-											src="/community/lab.jpeg"
+											src={withBasePath("/community/lab.jpeg")}
 											alt="SQE Quantum Lab at Mines"
 											className="w-full h-full object-cover"
 										/>

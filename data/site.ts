@@ -6,7 +6,13 @@ export const siteConfig = {
   schoolShort: "Mines",
   tagline:
     "Building the quantum community at Mines, connecting faculty and students.",
-  url: "",
+  // Updated automatically for GitHub Pages builds via next.config.mjs env.
+  url:
+    process.env.GITHUB_PAGES === "true"
+      ? `https://tonypeonio.github.io/${
+          process.env.GITHUB_REPOSITORY?.split("/")[1] ?? "SQE-Website-Mines"
+        }`
+      : "",
   contactEmail: "MinesSQE@gmail.com",
   social: {
     instagram: "https://www.instagram.com/mines_sqe/",

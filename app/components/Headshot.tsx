@@ -2,6 +2,7 @@
 
 import React, { useEffect, useRef, useState } from "react";
 import smartcrop from "smartcrop";
+import { withBasePath } from "@/lib/basePath";
 
 type HeadshotProps = {
   src: string;
@@ -75,7 +76,9 @@ async function loadDetector() {
   if (!detectorLoading) {
     detectorLoading = import("@mediapipe/tasks-vision")
       .then(async (vision) => {
-        const fileset = await vision.FilesetResolver.forVisionTasks("/mediapipe/wasm");
+        const fileset = await vision.FilesetResolver.forVisionTasks(
+          withBasePath("/mediapipe/wasm"),
+        );
         detector = await vision.FaceDetector.createFromOptions(fileset, {
           baseOptions: {
             modelAssetPath:
@@ -153,7 +156,7 @@ async function analyze(src: string): Promise<Analysis> {
     return result;
   }
 
-  const img = await loadImage(src);
+  const img = await loadImage(withBasePath(src));
   const canvas = await imageToCanvas(img);
   await loadDetector();
 
@@ -240,7 +243,7 @@ export default function Headshot({ src, alt, className = "" }: HeadshotProps) {
     // eslint-disable-next-line @next/next/no-img-element
     <img
       ref={imgRef}
-      src={src}
+      src={withBasePath(src)}
       alt={alt}
       className={`object-cover ${className}`}
       style={{ objectPosition }}
