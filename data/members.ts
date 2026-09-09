@@ -46,7 +46,7 @@ export const membersBySemester: Record<string, Member[]> = {
     {
       name: "Hiram Despain",
       role: "Events Chair",
-      img: "/members/placeholder.svg",
+      img: "/members/2026-Fall/HiramDespain.jpg",
       linkedin: "https://www.linkedin.com/in/hiramdespain/",
     },
     {
@@ -66,6 +66,12 @@ export const membersBySemester: Record<string, Member[]> = {
       role: "Web Communications Chair",
       img: "/members/2026-Fall/MargauxBasart.JPG",
       linkedin: "https://www.linkedin.com/in/margaux-basart/",
+    },
+    {
+      name: "Cameron Hares",
+      role: "Support Chair",
+      img: "/members/placeholder.svg",
+      linkedin: "https://www.linkedin.com/in/cameron-hares-6b2854250/",
     },
     {
       name: "Om Biyani",

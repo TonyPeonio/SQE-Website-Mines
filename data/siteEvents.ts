@@ -23,7 +23,7 @@ export type SiteEvent = {
 export const FEATURED_EVENTS: SiteEvent[] = [
   {
     id: "career-pathways-seminar",
-    title: "Career Pathways Seminar",
+    title: "SQE Seminar",
     dates: "Wednesdays, 9:00 AM · Fall semester",
     description:
       "A recurring seminar where invited speakers share their career pathways, jobs, and advice for students exploring quantum and related fields.",
