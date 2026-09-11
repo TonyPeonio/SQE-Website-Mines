@@ -4,20 +4,13 @@
 #
 # LIVE SITE: https://tonypeonio.github.io/SQE-Website-Mines/
 #
-# PUBLISH / UPDATE
-#   GitHub → Actions → "Deploy GitHub Pages" → Run workflow
+# GitHub Pages is currently set to "Deploy from a branch", which
+# Jekyll-renders README.md whenever there is no index.html.
+# This workflow builds the Next.js static export and publishes
+# those files onto main so the real site is what visitors see.
 #
-# TAKE SITE DOWN (while revising)
-#   Repo → Settings → Pages → Build and deployment → Source: None
-#   That stops the public site immediately. Local work is unaffected.
-#
-# BRING BACK ONLINE
-#   Settings → Pages → Source: GitHub Actions
-#   Then Actions → Deploy GitHub Pages → Run workflow
-#
-# OPTIONAL AUTO-DEPLOY
-#   To republish on every push to main, change the job `if:` lines to:
-#     if: github.event_name == 'workflow_dispatch' || github.event_name == 'push'
+# It also tries the official Actions Pages deploy. That path
+# only succeeds after: Settings → Pages → Source: GitHub Actions
 # ============================================================
 
 name: Deploy GitHub Pages
@@ -28,7 +21,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
@@ -37,9 +30,8 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  build:
-    # Manual "Run workflow" only (safe while revising). See header for auto-deploy.
-    if: github.event_name == 'workflow_dispatch'
+  build-and-publish:
+    if: github.actor != 'github-actions[bot]'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -60,14 +52,33 @@ jobs:
           GITHUB_PAGES: "true"
           GITHUB_REPOSITORY: ${{ github.repository }}
 
+      - name: Verify export
+        run: test -f out/index.html && test -f out/.nojekyll
+
       - name: Upload Pages artifact
+        continue-on-error: true
         uses: actions/upload-pages-artifact@v3
         with:
           path: out
 
-  deploy:
-    if: github.event_name == 'workflow_dispatch'
-    needs: build
+      - name: Publish static export for branch-based Pages
+        run: |
+          set -euo pipefail
+          cp -a out/. .
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No static site changes to publish"
+            exit 0
+          fi
+          git commit -m "Publish static site [skip ci]"
+          git push
+
+  deploy-actions:
+    if: github.actor != 'github-actions[bot]'
+    needs: build-and-publish
+    continue-on-error: true
     runs-on: ubuntu-latest
     environment:
       name: github-pages
