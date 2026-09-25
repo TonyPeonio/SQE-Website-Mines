@@ -84,13 +84,25 @@ export default function EventsPage() {
                       {event.description}
                     </p>
                     {event.href ? (
-                      <Link
-                        href={event.href}
-                        className="inline-flex items-center text-sm font-medium text-mines-navy hover:text-mines-navy-dark transition-colors"
-                      >
-                        View event details
-                        <ArrowRight className="w-4 h-4 ml-1" />
-                      </Link>
+                      event.external ? (
+                        <a
+                          href={event.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center text-sm font-medium text-mines-navy hover:text-mines-navy-dark transition-colors"
+                        >
+                          View event details
+                          <ArrowRight className="w-4 h-4 ml-1" />
+                        </a>
+                      ) : (
+                        <Link
+                          href={event.href}
+                          className="inline-flex items-center text-sm font-medium text-mines-navy hover:text-mines-navy-dark transition-colors"
+                        >
+                          View event details
+                          <ArrowRight className="w-4 h-4 ml-1" />
+                        </Link>
+                      )
                     ) : null}
                   </div>
                 </motion.article>

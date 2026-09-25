@@ -41,12 +41,14 @@ export const FEATURED_EVENTS: SiteEvent[] = [
   },
   {
     id: "qolab-hackathon",
-    title: "Qolab Hackathon",
-    dates: "October · Dates TBD",
+    title: "Qollab Hackathon",
+    dates: "October 9–11, 2026",
     description:
-      "A hackathon sponsored by Qolab. The exact date range will be announced soon—check back for updates.",
-    image: "/logos/qolab.png",
-    imageStyle: "logo",
+      "Qollab and IonQ’s global quantum hackathon. Registration opens September 28.",
+    href: "https://qollab.xyz/programs/hackathon",
+    image: "/events/qollab-hackathon-banner.jpg",
+    imageStyle: "photo",
+    external: true,
   },
   {
     id: "qiskit-fall-fest",
