@@ -18,18 +18,18 @@ export type Event = {
 };
 
 export const eventsByCycle: Record<string, Event[]> = {
-  "2025-2026": [
+  "2025-2026": [],
+  "2026-2027": [
     {
       id: 1,
       image: "/community/lab.jpeg",
       title: "Qiskit Fall Fest",
       speaker: "SQE at Colorado School of Mines",
-      date: "November 9–13, 2025",
+      date: "November 6–20, 2026",
       description:
-        "A week of quantum computing workshops, talks, and hands-on Qiskit coding. Visit /qiskit-fall-fest for the full schedule.",
+        "Beginner and advanced Qiskit workshops, a two-weekend hackathon, and Quantum Jeopardy. Visit /qiskit-fall-fest for the full schedule.",
     },
   ],
-  "2026-2027": [],
   "2027-2028": [],
 };
 

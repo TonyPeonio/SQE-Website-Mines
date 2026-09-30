@@ -3,7 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Calendar, Cpu, Users, Zap } from "lucide-react";
+import { Calendar, Cpu, MapPin, Users, Zap } from "lucide-react";
 import Header from "../components/Header";
 import Footer from "../components/footer";
 import { qiskitFallFest } from "@/data/qiskitFallFest";
@@ -12,11 +12,10 @@ import { accentCtaClassName, sectionDividerClassName, gridCardClassName, siteCon
 const highlightIcons = [Cpu, Zap, Users, Calendar];
 
 export default function QiskitFallFestPage() {
-  const ctaHref = qiskitFallFest.registrationUrl ?? siteConfig.social.newsletter;
-  const ctaLabel = qiskitFallFest.registrationUrl
-    ? "Register Now"
+  const ctaHref = qiskitFallFest.rsvpUrl ?? siteConfig.social.newsletter;
+  const ctaLabel = qiskitFallFest.rsvpUrl
+    ? "RSVP Now"
     : "Join Newsletter for Updates";
-  const ctaExternal = !qiskitFallFest.registrationUrl;
 
   return (
     <div className="relative min-h-screen flex flex-col bg-white text-mines-black overflow-hidden">
@@ -71,9 +70,8 @@ export default function QiskitFallFestPage() {
             >
               <a
                 href={ctaHref}
-                {...(ctaExternal
-                  ? { target: "_blank", rel: "noopener noreferrer" }
-                  : {})}
+                target="_blank"
+                rel="noopener noreferrer"
                 className={accentCtaClassName}
               >
                 {ctaLabel}
@@ -106,8 +104,8 @@ export default function QiskitFallFestPage() {
                   {qiskitFallFest.description}
                 </p>
                 <p className="mt-4 text-lg text-mines-silver leading-relaxed">
-                  Hosted by {siteConfig.name} at {siteConfig.school}, this week-long
-                  event brings together students, researchers, and quantum enthusiasts
+                  Hosted by {siteConfig.name} at {siteConfig.school}, this
+                  two-week event brings together students, researchers, and quantum enthusiasts
                   for an immersive dive into the world of quantum computing.
                 </p>
               </motion.div>
@@ -178,10 +176,10 @@ export default function QiskitFallFestPage() {
               viewport={{ once: true }}
             >
               <h2 className="text-3xl sm:text-4xl font-bold mb-3">
-                Week Schedule
+                Schedule
               </h2>
-              <p className="text-mines-silver text-lg">
-                Five days of workshops and activities — times and locations to be announced.
+              <p className="text-mines-silver text-lg max-w-3xl">
+                {qiskitFallFest.hackathon.description}
               </p>
             </motion.div>
             <div className="border border-mines-navy/10 overflow-hidden">
@@ -199,6 +197,10 @@ export default function QiskitFallFestPage() {
                       {item.day}
                     </p>
                     <p className="text-mines-silver text-sm mt-1">{item.time}</p>
+                    <p className="text-mines-silver text-sm mt-1 flex items-center gap-1">
+                      <MapPin className="w-3.5 h-3.5 shrink-0" />
+                      {item.location}
+                    </p>
                   </div>
                   <div>
                     <h3 className="text-mines-navy text-lg font-medium">
@@ -214,6 +216,59 @@ export default function QiskitFallFestPage() {
           </div>
         </section>
 
+        {/* Partner events */}
+        {qiskitFallFest.partnerEvents.length > 0 && (
+          <section className="px-6 pb-16 md:pb-24">
+            <div className="mx-auto max-w-6xl">
+              <motion.h2
+                className="text-3xl sm:text-4xl font-bold mb-3"
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+              >
+                More Fall Fest Near You
+              </motion.h2>
+              <p className="text-mines-silver text-lg mb-10">
+                Qiskit Fall Fest happens at universities around the world. Check out
+                these events nearby.
+              </p>
+              <div className="border border-mines-navy/10 overflow-hidden">
+                {qiskitFallFest.partnerEvents.map((event) => (
+                  <div
+                    key={event.title}
+                    className={`flex flex-col sm:flex-row gap-4 sm:gap-8 px-8 py-8 border-b border-mines-navy/10 last:border-b-0 ${gridCardClassName}`}
+                  >
+                    <div className="sm:w-44 shrink-0">
+                      <p className="text-mines-navy text-sm font-semibold">
+                        {event.dates}
+                      </p>
+                    </div>
+                    <div>
+                      <h3 className="text-mines-navy text-lg font-medium">
+                        {event.url ? (
+                          <a
+                            href={event.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="underline underline-offset-4 hover:text-mines-silver transition-colors"
+                          >
+                            {event.title}
+                          </a>
+                        ) : (
+                          event.title
+                        )}
+                      </h3>
+                      <p className="text-mines-silver text-sm mt-2 leading-relaxed">
+                        {event.description}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
+
         {/* CTA */}
         <section className="px-6 pb-20">
           <motion.div
@@ -226,14 +281,14 @@ export default function QiskitFallFestPage() {
               Ready to dive into quantum?
             </h2>
             <p className="text-mines-silver mb-8">
-              Stay tuned for registration details and exact event times. Join our
-              newsletter to be the first to know.
+              {qiskitFallFest.rsvpUrl
+                ? "Let us know you're coming so we can plan workshops, food, and prizes."
+                : "Our RSVP form is coming soon. Join our newsletter to be the first to know."}
             </p>
             <a
               href={ctaHref}
-              {...(ctaExternal
-                ? { target: "_blank", rel: "noopener noreferrer" }
-                : {})}
+              target="_blank"
+              rel="noopener noreferrer"
               className={accentCtaClassName}
             >
               {ctaLabel}

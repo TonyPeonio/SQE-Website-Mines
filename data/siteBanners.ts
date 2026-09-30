@@ -42,7 +42,7 @@ export const SITE_BANNERS: Record<string, SiteBanner> = {
   "qiskit-fall-fest": {
     id: "qiskit-fall-fest",
     title: "Qiskit Fall Fest",
-    subtitle: "November 9–13 — Workshops, talks, and hands-on quantum computing",
+    subtitle: "November 6–20 — Qiskit workshops, a hackathon, and Quantum Jeopardy",
     ctaLabel: "View Event",
     ctaHref: "/qiskit-fall-fest",
     showOnHomepage: true,

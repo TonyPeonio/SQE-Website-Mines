@@ -53,9 +53,9 @@ export const FEATURED_EVENTS: SiteEvent[] = [
   {
     id: "qiskit-fall-fest",
     title: "Qiskit Fall Fest",
-    dates: "November 9–13, 2025",
+    dates: "November 6–20, 2026",
     description:
-      "A week of quantum computing workshops, talks, and hands-on Qiskit coding at Mines.",
+      "Beginner and advanced Qiskit workshops, a two-weekend hackathon, and Quantum Jeopardy at Mines.",
     href: "/qiskit-fall-fest",
     image: "/logos/ibm.png",
   },

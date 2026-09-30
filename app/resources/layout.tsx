@@ -1,11 +1,11 @@
 import { createPageMetadata } from "@/data/site";
 
 export const metadata = createPageMetadata(
-  "Qiskit Fall Fest",
-  "Join SQE at Colorado School of Mines for Qiskit Fall Fest — Qiskit workshops, a hackathon, and Quantum Jeopardy, November 6–20, 2026.",
+  "Resources",
+  "Quantum software and hardware learning resources, Mines quantum research groups, job boards, academic programs, and conference funding from SQE at Colorado School of Mines.",
 );
 
-export default function QiskitFallFestLayout({
+export default function ResourcesLayout({
   children,
 }: { children: React.ReactNode }) {
   return (

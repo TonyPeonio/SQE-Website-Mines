@@ -20,5 +20,6 @@ export const navLinks: NavLink[] = [
   { href: "/events", label: "Events" },
   // { href: "/community", label: "Community" },
   { href: "/projects", label: "Our Lab" },
+  { href: "/resources", label: "Resources" },
   // { href: "/papers", label: "Research" },
 ];
