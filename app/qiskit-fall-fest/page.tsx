@@ -197,10 +197,12 @@ export default function QiskitFallFestPage() {
                       {item.day}
                     </p>
                     <p className="text-mines-silver text-sm mt-1">{item.time}</p>
-                    <p className="text-mines-silver text-sm mt-1 flex items-center gap-1">
-                      <MapPin className="w-3.5 h-3.5 shrink-0" />
-                      {item.location}
-                    </p>
+                    {item.location && (
+                      <p className="text-mines-silver text-sm mt-1 flex items-center gap-1">
+                        <MapPin className="w-3.5 h-3.5 shrink-0" />
+                        {item.location}
+                      </p>
+                    )}
                   </div>
                   <div>
                     <h3 className="text-mines-navy text-lg font-medium">

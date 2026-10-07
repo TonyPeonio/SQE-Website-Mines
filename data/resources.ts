@@ -259,13 +259,6 @@ export const RESOURCE_SECTIONS: ResourceSection[] = [
               "Dielectric and ferroelectric ceramics, including atomic-scale defects and coherence for quantum applications.",
             url: "https://brenneckalab.mines.edu/",
           },
-          {
-            title: "Quantum Materials Discovery",
-            subtitle: "Dr. Eric Toberer & Dr. Kamil Ciesielski · Physics",
-            description:
-              "Undergraduate research team synthesizing new quantum materials such as Kagome-lattice compounds.",
-            url: "https://undergraduateresearch.mines.edu/quantum-materials-discovery-3/",
-          },
         ],
       },
     ],

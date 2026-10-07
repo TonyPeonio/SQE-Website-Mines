@@ -42,6 +42,14 @@ export const qiskitFallFest = {
         "No quantum or coding experience needed. Get started with Qiskit and the fundamentals of quantum computing.",
     },
     {
+      day: "Wednesday, Nov 11",
+      title: "SQE Seminar with an IBM Speaker",
+      time: "9:00 AM",
+      location: "McNeil 313",
+      description:
+        "A Fall Fest edition of the SQE Seminar featuring a speaker from IBM.",
+    },
+    {
       day: "Thursday, Nov 12",
       title: "Advanced Qiskit Workshop",
       time: "5:00–8:00 PM",
@@ -52,18 +60,18 @@ export const qiskitFallFest = {
     {
       day: "Friday, Nov 13",
       title: "Quantum Jeopardy",
-      time: "Time TBD",
-      location: "Location TBD",
+      time: "12:00 PM",
+      location: "Quantum Theory Lab — CoorsTek 230",
       description:
         "Test your quantum knowledge in a game of Quantum Jeopardy. Prizes and fun guaranteed!",
     },
     {
       day: "Monday, Nov 16",
       title: "Hackathon Submission Deadline",
-      time: "Time TBD",
-      location: "Details TBD",
+      time: "11:59 PM",
+      location: null,
       description:
-        "Final hackathon projects are due.",
+        "Final hackathon projects are due by 11:59 PM.",
     },
     {
       day: "Friday, Nov 20",
