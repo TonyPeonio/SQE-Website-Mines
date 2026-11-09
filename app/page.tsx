@@ -8,6 +8,7 @@ import { Users, Code, Newspaper, HeartHandshake } from "lucide-react";
 
 import Header from "./components/Header";
 import Footer from "./components/footer";
+import SiteBannerBar from "./components/SiteBanner";
 import { siteConfig, accentCtaClassName, outlineBtnClassName, pageShellClassName, sectionDividerClassName, gridCardClassName } from "@/data/site";
 
 const ALL_LOGOS = [
@@ -29,6 +30,7 @@ export default function Home() {
   return (
     <div className={pageShellClassName}>
       <Header />
+      <SiteBannerBar />
       <section className="bg-white flex flex-col items-center text-center pt-6 pb-20 sm:pt-24 sm:pb-20">
         <br></br>
         <div className="max-w-4xl mx-auto mb-5">

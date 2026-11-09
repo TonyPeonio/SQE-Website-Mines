@@ -48,9 +48,19 @@ export const SITE_BANNERS: Record<string, SiteBanner> = {
     showOnHomepage: true,
     homepageCtaClassName: accentCtaClassName,
   },
+  "qff-hackathon-released": {
+    id: "qff-hackathon-released",
+    title: "Qiskit Fall Fest Hackathon Challenge Released",
+    subtitle: "Download the challenge notebook and start building. Submissions due Monday, Nov 16 at 11:59 PM.",
+    ctaLabel: "Get the Challenge",
+    ctaHref: "/qiskit-fall-fest#hackathon",
+    animateCta: true,
+    showOnHomepage: true,
+    homepageCtaClassName: accentCtaClassName,
+  },
 };
 
-export const ACTIVE_BANNER_ID: string | null = "qiskit-fall-fest";
+export const ACTIVE_BANNER_ID: string | null = "qff-hackathon-released";
 
 export const AUTO_ROTATE_BANNERS = false;
 export const ROTATING_BANNER_IDS: string[] = [

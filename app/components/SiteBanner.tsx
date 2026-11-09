@@ -15,12 +15,10 @@ import { accentCtaClassName, siteConfig } from "@/data/site";
 
 function BannerCta({ banner }: { banner: SiteBanner }) {
   const linkClass = "inline-flex w-fit items-center";
-  const { accent } = siteConfig.colors;
 
   const label = banner.animateCta ? (
     <motion.span
-      className="relative inline-flex text-xs font-semibold uppercase tracking-wide transition hover:text-white"
-      style={{ color: accent }}
+      className="relative inline-flex text-xs font-semibold uppercase tracking-wide text-white transition hover:text-white/80"
       animate={{ opacity: [1, 0.75, 1] }}
       transition={{
         duration: 1.6,
@@ -79,7 +77,7 @@ function resolveInitialBannerId(): string | null {
 
 export default function SiteBannerBar() {
   const [bannerId, setBannerId] = React.useState<string | null>(resolveInitialBannerId);
-  const { primary, accent } = siteConfig.colors;
+  const { primary } = siteConfig.colors;
 
   React.useEffect(() => {
     if (!AUTO_ROTATE_BANNERS || ROTATING_BANNER_IDS.length < 2) {
@@ -110,17 +108,14 @@ export default function SiteBannerBar() {
   return (
     <div
       className="border-b"
-      style={{
-        borderColor: `${primary}B3`,
-        background: `linear-gradient(to right, ${primary}73, ${primary}59, ${primary}73)`,
-      }}
+      style={{ borderColor: primary, backgroundColor: primary }}
     >
       <div className="mx-auto flex w-full max-w-7xl flex-col gap-2 px-4 py-3 text-white sm:flex-row sm:items-center sm:justify-between sm:gap-4 sm:px-6 lg:px-8">
         <div className="flex flex-col">
-          <p className="text-sm font-semibold tracking-wide" style={{ color: accent }}>
+          <p className="text-sm font-semibold tracking-wide text-white">
             {banner.title}
           </p>
-          <p className="text-xs text-white/90">{banner.subtitle}</p>
+          <p className="text-xs text-white/80">{banner.subtitle}</p>
         </div>
         <BannerCta banner={banner} />
       </div>

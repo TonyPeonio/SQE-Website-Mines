@@ -20,7 +20,20 @@ export const qiskitFallFest = {
   rsvpUrl: null as string | null,
   hackathon: {
     opens: "Friday, Nov 6",
-    deadline: "Monday, Nov 16",
+    deadline: "Monday, Nov 16, 11:59 PM",
+    released: true,
+    // Notebooks live in public/qiskit-fall-fest/
+    challenges: [
+      {
+        title: "Combinatorial Optimization with QAOA",
+        topic: "Portfolio selection",
+        description:
+          "Start with a guided QAOA tutorial on Max-Cut, then take on the challenge: a budget-constrained portfolio-selection problem with Beginner, Intermediate, and Advanced levels. Deliverables for each level are listed at the end of the notebook.",
+        file: "/qiskit-fall-fest/hackathon_challenge_2_tutorial.ipynb",
+        credit:
+          "Tutorial by Benjamin Tirado for BasQ Qiskit Fall Fest 2026 (CC BY 4.0 / Apache 2.0).",
+      },
+    ],
     description:
       "Hackathon prompts drop at Quantum Lunch on November 6 and submissions are due November 16 — that's two full weekends to build, with a weekend between the workshops and the deadline to put what you learned into practice.",
   },

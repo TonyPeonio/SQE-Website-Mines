@@ -3,7 +3,8 @@
 import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Calendar, Cpu, MapPin, Users, Zap } from "lucide-react";
+import { Calendar, Cpu, Download, MapPin, Users, Zap } from "lucide-react";
+import { withBasePath } from "@/lib/basePath";
 import Header from "../components/Header";
 import Footer from "../components/footer";
 import { qiskitFallFest } from "@/data/qiskitFallFest";
@@ -76,6 +77,11 @@ export default function QiskitFallFestPage() {
               >
                 {ctaLabel}
               </a>
+              {qiskitFallFest.hackathon.released && (
+                <a href="#hackathon" className={accentCtaClassName}>
+                  Get the Hackathon Challenge
+                </a>
+              )}
               <a
                 href="#schedule"
                 className={accentCtaClassName}
@@ -165,6 +171,60 @@ export default function QiskitFallFestPage() {
             </div>
           </div>
         </section>
+
+        {/* Hackathon */}
+        {qiskitFallFest.hackathon.released && (
+          <section id="hackathon" className="px-6 pb-16 md:pb-24 scroll-mt-20">
+            <div className="mx-auto max-w-6xl">
+              <motion.div
+                className="mb-10"
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+              >
+                <h2 className="text-3xl sm:text-4xl font-bold mb-3">
+                  Hackathon Challenge
+                </h2>
+                <p className="text-mines-silver text-lg max-w-3xl">
+                  The challenge is live! Download the notebook, open it in Jupyter
+                  (or Google Colab), and start building. Submissions are due{" "}
+                  {qiskitFallFest.hackathon.deadline}.
+                </p>
+              </motion.div>
+              <div className="border border-mines-navy/10 overflow-hidden">
+                {qiskitFallFest.hackathon.challenges.map((challenge) => (
+                  <div
+                    key={challenge.file}
+                    className={`flex flex-col md:flex-row md:items-center gap-6 md:gap-10 px-8 py-8 border-b border-mines-navy/10 last:border-b-0 ${gridCardClassName}`}
+                  >
+                    <div className="flex-1">
+                      <p className="text-mines-silver text-sm font-semibold uppercase tracking-wide">
+                        {challenge.topic}
+                      </p>
+                      <h3 className="text-mines-navy text-xl font-medium mt-1">
+                        {challenge.title}
+                      </h3>
+                      <p className="text-mines-silver text-sm mt-2 leading-relaxed">
+                        {challenge.description}
+                      </p>
+                      <p className="text-mines-silver/80 text-xs mt-3">
+                        {challenge.credit}
+                      </p>
+                    </div>
+                    <a
+                      href={withBasePath(challenge.file)}
+                      download
+                      className={`${accentCtaClassName} shrink-0 gap-2 self-start md:self-center`}
+                    >
+                      <Download className="w-4 h-4" />
+                      Download Notebook
+                    </a>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
 
         {/* Schedule */}
         <section id="schedule" className="px-6 pb-16 md:pb-24 scroll-mt-20">
