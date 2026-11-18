@@ -46,6 +46,33 @@ export const RESOURCE_SECTIONS: ResourceSection[] = [
     title: "Learn More About Quantum Software",
     groups: [
       {
+        heading: "Start Here: Play Your Way Into Quantum Algorithms",
+        note: "New to quantum? Start with these. They build intuition for superposition and interference without any math.",
+        items: [
+          {
+            title: "Quantrain",
+            subtitle: "Browser game · 1st place globally, Qollab x IonQ Hackathon",
+            description:
+              "A metro puzzle game where the train is a single photon and each track is a qubit. Route trains through beam splitters, phase twists, and crossovers to see quantum interference in action, then build your own maps. Every map compiles to real Qiskit code.",
+            url: "https://thohmass.github.io/Quantrain/prototype/",
+          },
+          {
+            title: "Where's my train? Quantum interference in a metro puzzle game",
+            subtitle: "Qollab · Video explainer for Quantrain",
+            description:
+              "A short walkthrough of the quantum physics behind each part of the game, including how one level works as a Mach-Zehnder interferometer.",
+            url: "https://youtu.be/hBC32K6czy4",
+          },
+          {
+            title: "Build New Quantrain Levels",
+            subtitle: "Qollab",
+            description:
+              "Fork the project on Qollab and design your own levels. Made by team Give me a QIS: Tomáš Roch, Wiktor Dowgiałło, Stefan Bia, and Benjamin Voelkert.",
+            url: "https://qollab.xyz/u/Quantomas/quantrain",
+          },
+        ],
+      },
+      {
         heading: "Recommended Books",
         note: LAB_BOOK_NOTE,
         items: [
