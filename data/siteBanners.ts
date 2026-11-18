@@ -51,7 +51,7 @@ export const SITE_BANNERS: Record<string, SiteBanner> = {
   "qff-hackathon-released": {
     id: "qff-hackathon-released",
     title: "Qiskit Fall Fest Hackathon Challenge Released",
-    subtitle: "Download the challenge notebook and start building. Submissions due Monday, Nov 16 at 11:59 PM.",
+    subtitle: "Download the challenge notebook and start building. Submissions due Friday, Nov 20 at 11:59 PM.",
     ctaLabel: "Get the Challenge",
     ctaHref: "/qiskit-fall-fest#hackathon",
     animateCta: true,

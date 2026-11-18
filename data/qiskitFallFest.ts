@@ -6,6 +6,8 @@
 //   Edit schedule items, links, or descriptions below.
 //   When the RSVP/interest form is ready, paste its link into
 //   rsvpUrl — the page buttons switch from the newsletter to it.
+//   When the hackathon submission Google Form is ready, paste its
+//   link into hackathon.submissionUrl to turn on the Submit button.
 //
 // ============================================================
 
@@ -20,8 +22,9 @@ export const qiskitFallFest = {
   rsvpUrl: null as string | null,
   hackathon: {
     opens: "Friday, Nov 6",
-    deadline: "Monday, Nov 16, 11:59 PM",
+    deadline: "Friday, Nov 20, 11:59 PM",
     released: true,
+    submissionUrl: "https://docs.google.com/forms/d/e/1FAIpQLSd5EV1sqzO9Bv78nDY-2KPFvuYgfyLXFki0cDL3Suz5CpnwnQ/viewform" as string | null,
     // Notebooks live in public/qiskit-fall-fest/
     challenges: [
       {
@@ -35,7 +38,7 @@ export const qiskitFallFest = {
       },
     ],
     description:
-      "Hackathon prompts drop at Quantum Lunch on November 6 and submissions are due November 16 — that's two full weekends to build, with a weekend between the workshops and the deadline to put what you learned into practice.",
+      "Hackathon prompts drop at Quantum Lunch on November 6 and submissions are due Friday, November 20 at 11:59 PM — two full weeks to build, with time after the workshops to put what you learned into practice.",
   },
   schedule: [
     {
@@ -79,18 +82,18 @@ export const qiskitFallFest = {
         "Test your quantum knowledge in a game of Quantum Jeopardy. Prizes and fun guaranteed!",
     },
     {
-      day: "Monday, Nov 16",
+      day: "Friday, Nov 20",
       title: "Hackathon Submission Deadline",
       time: "11:59 PM",
       location: null,
       description:
-        "Final hackathon projects are due by 11:59 PM.",
+        "Upload your solution notebook and deliverables through the submission form by 11:59 PM.",
     },
     {
-      day: "Friday, Nov 20",
-      title: "Winner & Participant Recognition at Quantum Lunch",
-      time: "12:00 PM",
-      location: "CoorsTek 230",
+      day: "Date TBD",
+      title: "Winner & Participant Recognition",
+      time: "Time TBD",
+      location: null,
       description:
         "We celebrate the hackathon winners and recognize everyone who participated.",
     },

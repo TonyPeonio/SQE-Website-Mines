@@ -3,12 +3,12 @@
 import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Calendar, Cpu, Download, MapPin, Users, Zap } from "lucide-react";
+import { Calendar, Cpu, Download, MapPin, Upload, Users, Zap } from "lucide-react";
 import { withBasePath } from "@/lib/basePath";
 import Header from "../components/Header";
 import Footer from "../components/footer";
 import { qiskitFallFest } from "@/data/qiskitFallFest";
-import { accentCtaClassName, sectionDividerClassName, gridCardClassName, siteConfig } from "@/data/site";
+import { accentCtaClassName, outlineBtnClassName, sectionDividerClassName, gridCardClassName, siteConfig } from "@/data/site";
 
 const highlightIcons = [Cpu, Zap, Users, Calendar];
 
@@ -221,6 +221,40 @@ export default function QiskitFallFestPage() {
                     </a>
                   </div>
                 ))}
+              </div>
+
+              {/* Submission */}
+              <div
+                id="submit"
+                className="mt-8 flex flex-col md:flex-row md:items-center gap-6 md:gap-10 px-8 py-8 border border-mines-navy/10 bg-mines-silver-light/30 scroll-mt-20"
+              >
+                <div className="flex-1">
+                  <h3 className="text-mines-navy text-xl font-medium">
+                    Submit Your Solution
+                  </h3>
+                  <p className="text-mines-silver text-sm mt-2 leading-relaxed">
+                    Upload your completed notebook, your README, and the other
+                    deliverables for your level by{" "}
+                    {qiskitFallFest.hackathon.deadline}.
+                  </p>
+                </div>
+                {qiskitFallFest.hackathon.submissionUrl ? (
+                  <a
+                    href={qiskitFallFest.hackathon.submissionUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`${accentCtaClassName} shrink-0 gap-2 self-start md:self-center`}
+                  >
+                    <Upload className="w-4 h-4" />
+                    Submit Solution
+                  </a>
+                ) : (
+                  <span
+                    className={`${outlineBtnClassName} shrink-0 cursor-default self-start md:self-center`}
+                  >
+                    Submission form coming soon
+                  </span>
+                )}
               </div>
             </div>
           </section>
