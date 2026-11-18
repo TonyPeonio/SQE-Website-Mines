@@ -1,7 +1,7 @@
 1:HL["/SQE-Website-Mines/_next/static/media/a52d0bf095c248da-s.p.ttf","font",{"crossOrigin":"","type":"font/ttf"}]
 2:HL["/SQE-Website-Mines/_next/static/media/e4af272ccee01ff0-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 3:HL["/SQE-Website-Mines/_next/static/css/e46158bf84374ff6.css","style"]
-0:["_zfTbZUUFkhrCW0INjpxk",[[["",{"children":["qiskit-fall-fest",{"children":["__PAGE__",{}]}]},"$undefined","$undefined",true],"$L4",[[["$","link","0",{"rel":"stylesheet","href":"/SQE-Website-Mines/_next/static/css/e46158bf84374ff6.css","precedence":"next"}]],"$L5"]]]]
+0:["6MXMLjV2URiF3y3HnZ2T4",[[["",{"children":["qiskit-fall-fest",{"children":["__PAGE__",{}]}]},"$undefined","$undefined",true],"$L4",[[["$","link","0",{"rel":"stylesheet","href":"/SQE-Website-Mines/_next/static/css/e46158bf84374ff6.css","precedence":"next"}]],"$L5"]]]]
 6:I{"id":1443,"chunks":["272:static/chunks/webpack-da3bf77441801cb7.js","971:static/chunks/fd9d1056-5ba7f879e65acc02.js","864:static/chunks/864-caf0a86c94dc772f.js"],"name":"","async":false}
 7:I{"id":8639,"chunks":["272:static/chunks/webpack-da3bf77441801cb7.js","971:static/chunks/fd9d1056-5ba7f879e65acc02.js","864:static/chunks/864-caf0a86c94dc772f.js"],"name":"","async":false}
 9:I{"id":5146,"chunks":["272:static/chunks/webpack-da3bf77441801cb7.js","971:static/chunks/fd9d1056-5ba7f879e65acc02.js","864:static/chunks/864-caf0a86c94dc772f.js"],"name":"","async":false}
